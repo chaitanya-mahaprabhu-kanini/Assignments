@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel = "icon" type = "img/png" href = "images/calculate.png">
+    <style>
+        h1{
+            color:white;
+        }
+        img.i2{
+            height:100px;
+            width:100px;
+        }
+
+        body{
+            background-color: black;
+        }
+
+        form{
+            font-size:30px;
+            color:black;
+
+        }
+
+        fieldset{
+            background-color: gray;
+        }
+
+        option{
+            font-size:20px;
+            text-align: center;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+    </style>
+    <script>
+        function calculate(){
+            value1 = document.form.value1.value;
+            value2 = document.form.value2.value;
+            res = 0;
+            opt = document.form.options.value;
+            if(opt == "add")
+            res = parseInt(value1)+parseInt(value2);
+            else if(opt == "sub")
+            res = value1-value2;
+            else if(opt == "mul")
+            res = value1*value2;
+            else if(opt == "div")
+            res = value1/value2;
+
+            document.getElementById("result").innerHTML = res;
+        }
+
+        function reset(){
+            location.reload();
+        }
+    </script>
+</head>
+<body>
+    <center>
+    <h1>~ Calculator ~</h1>
+    <img class = "i1" src = "images/calculator.jpg" alt = "Calculator" style = "width: 50%;border: 6px solid white;">
+    </center>
+    <br/>
+    <fieldset name = "f1">
+        <center>
+        <form name = "form">
+            <label>~ Value 1 ~</label>
+            <br/>
+            <input type = "number" placeholder = "value 1" name = "value1" autocomplete="on">
+            <br/><br/>
+            <label>~ Value 2 ~</label>
+            <br/>
+            <input type = "number" placeholder = "value 2" name = "value2" autocomplete="on">
+            <br/><br/>
+            <label>~ Select Operation ~</label>
+            <br/>
+            <select name = "options">
+                <option name = "add" value = "add">Add</option>
+                <option name = "sub" value = "sub">Subtract</option>
+                <option name = "sub" value = "mul">Multiply</option>
+                <option name = "sub" value = "div">Divide</option>
+            </select>
+            <br/><br/>
+           <a href = "javascript:calculate()"><img class = "i2" src = "images/calculate.png" id = "calculate"></a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <a href = "javascript:reset()"><img class = "i3" src = "images/refresh.png" id = "reset"></a>
+            <br/><br/>
+            <h1 id = "result"></h1>        
+        </form>
+        </center>
+    </fieldset>
+</body>
+</html>
